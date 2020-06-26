@@ -28,12 +28,12 @@ Then by clicking on the tools in you android studio and connect the firebase by 
 * Select a starting mode for your Firebase Security Rules:
 
 ###### Test mode
-Good for getting started with the mobile and web client libraries, but allows anyone to read and overwrite your data. After testing, make sure to review the Understand Firebase Realtime Database Rules section.
+  *  Good for getting started with the mobile and web client libraries, but allows anyone to read and overwrite your data. After testing, make sure to review the Understand Firebase Realtime Database Rules section.
 
-To get started with the web, iOS, or Android SDK, select test mode.
+  * To get started with the web, iOS, or Android SDK, select test mode.
 
 ###### Locked mode
-Denies all reads and writes from mobile and web clients. Your authenticated application servers can still access your database.
+  * Denies all reads and writes from mobile and web clients. Your authenticated application servers can still access your database.
 
 * Click Done.
 
