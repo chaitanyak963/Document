@@ -28,12 +28,18 @@ Then by clicking on the tools in you android studio and connect the firebase by 
 * Select a starting mode for your Firebase Security Rules:
 
 ###### Test mode
-  *  Good for getting started with the mobile and web client libraries, but allows anyone to read and overwrite your data. After testing, make sure to review the Understand Firebase Realtime Database Rules section.
+Good for getting started with the mobile and web client libraries, but allows anyone to read and overwrite your data. After testing, make sure to review the Understand Firebase Realtime Database Rules section.
 
-  * To get started with the web, iOS, or Android SDK, select test mode.
+To get started with the web, iOS, or Android SDK, select test mode.
 
 ###### Locked mode
-  * Denies all reads and writes from mobile and web clients. Your authenticated application servers can still access your database.
+Denies all reads and writes from mobile and web clients. Your authenticated application servers can still access your database.
 
 * Click Done.
+
+#### Add the Realtime Database SDK to your app :
+* Add the dependency for the Realtime Database Android library to your module (app-level) Gradle file (usually app/build.gradle):
+```
+implementation 'com.google.firebase:firebase-database:19.3.1'
+```
 
