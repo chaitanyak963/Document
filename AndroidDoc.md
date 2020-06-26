@@ -1,161 +1,39 @@
-### How to Use Data Binding Library with Kotlin
-#### DataBinding:
-Data binding offers flexibility as well as broad compatibility to your code.
-we have been using Data Binding Library to bind application logic and layouts. 
-It’s a library that allows you to bind the data of your models directly to the xml views in a very flexible way.
-Kotlin very much supports Data Binding Library. We can still bind our layouts with the Kotlin class.
-If you want to use data binding and Kotlin, here are a few things to keep in mind:
-Data binding is a support library, so it can be used with all Android platform versions all the way back to Android 2.1 (API level 7+).
-To use data binding, you need Android Plugin for Gradle 1.5.0-alpha1 or higher. You can see here how to update the Android Plugin for Gradle.
-Android Studio 3.0 fully supports kotlin
-First of all, create an Android Studio project and add a dependency for Kotlin and few changes for your Project level build.gradle
-We also need to add the Data Binding dependency and the ones of Kotlin to the build.gradle file of our app.
-//Notice that I made the compiler version a variable in the project level build gradle so it can be managed from a single place. That’s all the configuration we need to start using Data Binding with Kotlin.
-Now for Kotlin and Data Binding to work together, add a Kotlin Model Class. This model class is going to bind your layout with your Kotlin activity class.
-##### activity_main:
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<layout
-   xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:app="http://schemas.android.com/apk/res-auto"
-   xmlns:tools="http://schemas.android.com/tools">
-   <data>
-       <variable
-           name="nithya"
-           type="com.example.databinding.Name" />
-   </data>
-<LinearLayout
-   android:layout_width="match_parent"
-   android:orientation="vertical"
-   android:layout_height="match_parent"
-   tools:context=".MainActivity">
+### What is Firebase Database ?
+The Firebase Realtime Database is a cloud-hosted database. Data is stored as JSON and synchronized in realtime to every connected client. When you build cross-platform apps with our iOS, Android, and JavaScript SDKs, all of your clients share one Realtime Database instance and automatically receive updates with the newest data.
 
-   <EditText
-       android:id="@+id/name"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"/>
-<TextView
-   android:text="@={nithya.names}"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"
-   android:id="@+id/ts"/>
-   <Button
-       android:text="submit"
-       android:id="@+id/btn"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"/>
+### Why is Firebase Database ?
+#### Realtime: 
+The data stored in the Firebase Realtime Database will be reflected at realtime i.e. if there is a change in the values in the database then that change will be reflected back to all the users at that instant only and no dealy will be there.
 
-</LinearLayout>
-</layout>
-```
-##### MainActivity:
-```kotlin
-package com.example.databinding
+#### Large Accessibility: 
+The Firebase Realtime Database can be accessed from various platforms like Android, iOS, Web. So, you need not write the same code for different platforms a number of times.
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import androidx.databinding.DataBindingUtil
-import com.example.databinding.databinding.ActivityMainBinding
+#### Offline Mode: 
+This is the best advantage of using Firebase Realtime Database. If you are not connected with the internet and you changed something on your application then that change will be reflected in your application at that time only but on the Firebase Database, the change will be updated once you are online i.e. your device is connected to the internet. So, even if there is no internet, the user feels like using the services the same as done when there is the internet.
 
-class MainActivity : AppCompatActivity() {
-lateinit var dataBinding:ActivityMainBinding
-   override fun onCreate(savedInstanceState: Bundle?) {
-       super.onCreate(savedInstanceState)
-       dataBinding = DataBindingUtil.setContentView(this,R.layout.activity_main)
-       dataBinding.btn.setOnClickListener{
-           Anusha()
-       }
+#### No Application Server: 
+There is no need for application server here because the data is directly accessed from the mobile device.
+Control access to data: By default, no one is allowed to change the data in the Firebase Realtime Database but you can control the access of data i.e. you can set which user can access the data.
 
-   }
+### How is Firebase Database ?
+#### Step 1 - Connect your App to Firebase :
+If you haven't already, add Firebase to your Android project.
+Then by clicking on the tools in you android studio and connect the firebase by clicking on connect to firebase from the Firebase Assistant
 
-   private fun Anusha() {
-      // TODO("Not yet implemented")
-     val n=dataBinding.name.text.toString()
-       val d=Name(n)
-       dataBinding.nithya=d
-       //dataBinding.ts.text=d.names
-     //  dataBinding.ts.text=n
-   }
-}
-```
+#### Step 2 - Create a Database :
+*If you haven't already, create a Firebase project: In the Firebase console, click Add project, then follow the on-screen instructions to create a Firebase project or to add Firebase services to an existing GCP project.
 
-##### Name.kt
-```kotlin
-data class Name(var names:String = " ")
-```
+*Navigate to the Database section of the Firebase console. You'll be prompted to select an existing Firebase project. Follow the database creation workflow.
 
-##### Output:
+*Select a starting mode for your Firebase Security Rules:
 
-##### Another Example:
+###### Test mode
+Good for getting started with the mobile and web client libraries, but allows anyone to read and overwrite your data. After testing, make sure to review the Understand Firebase Realtime Database Rules section.
 
-##### Using DataBinding:
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+To get started with the web, iOS, or Android SDK, select test mode.
 
-    <LinearLayout
+###### Locked mode
+Denies all reads and writes from mobile and web clients. Your authenticated application servers can still access your database.
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
+Click Done.
 
-        <Button
-            android:id="@+id/plus"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="+"
-            android:textSize="50dp" />
-
-        <TextView
-            android:id="@+id/zero"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="8"
-            android:gravity="center"
-            android:text="0"
-            android:textSize="190dp"
-
-            />
-
-        <Button
-            android:id="@+id/minus"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="-"
-            android:textSize="50dp" />
-
-    </LinearLayout>
-</layout>
-```
-
-##### MainActivity:
-```kotlin
-package com.example.databinding2
-
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import androidx.databinding.DataBindingUtil
-import com.example.databinding2.databinding.ActivityMainBinding
-
-class MainActivity : AppCompatActivity() {
-lateinit var binding:ActivityMainBinding
-   var count=0
-   override fun onCreate(savedInstanceState: Bundle?) {
-       super.onCreate(savedInstanceState)
-      binding= DataBindingUtil.setContentView(this,R.layout.activity_main)
-       binding.plus.setOnClickListener{
-           count++
-           binding.zero.text=count.toString()
-       }
-       binding.minus.setOnClickListener{
-           count--
-           binding.zero.text=count.toString()
-       }
-   }
-}
-```
