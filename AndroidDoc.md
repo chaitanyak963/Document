@@ -21,11 +21,11 @@ If you haven't already, add Firebase to your Android project.
 Then by clicking on the tools in you android studio and connect the firebase by clicking on connect to firebase from the Firebase Assistant
 
 #### Step 2 - Create a Database :
-*If you haven't already, create a Firebase project: In the Firebase console, click Add project, then follow the on-screen instructions to create a Firebase project or to add Firebase services to an existing GCP project.
+* If you haven't already, create a Firebase project: In the Firebase console, click Add project, then follow the on-screen instructions to create a Firebase project or to add Firebase services to an existing GCP project.
 
-*Navigate to the Database section of the Firebase console. You'll be prompted to select an existing Firebase project. Follow the database creation workflow.
+* Navigate to the Database section of the Firebase console. You'll be prompted to select an existing Firebase project. Follow the database creation workflow.
 
-*Select a starting mode for your Firebase Security Rules:
+* Select a starting mode for your Firebase Security Rules:
 
 ###### Test mode
 Good for getting started with the mobile and web client libraries, but allows anyone to read and overwrite your data. After testing, make sure to review the Understand Firebase Realtime Database Rules section.
@@ -35,5 +35,5 @@ To get started with the web, iOS, or Android SDK, select test mode.
 ###### Locked mode
 Denies all reads and writes from mobile and web clients. Your authenticated application servers can still access your database.
 
-Click Done.
+* Click Done.
 
