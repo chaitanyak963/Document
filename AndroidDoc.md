@@ -38,8 +38,38 @@ Denies all reads and writes from mobile and web clients. Your authenticated appl
 * Click Done.
 
 #### Add the Realtime Database SDK to your app :
-* Add the dependency for the Realtime Database Android library to your module (app-level) Gradle file (usually app/build.gradle):
+Add the dependency for the Realtime Database Android library to your module (app-level) Gradle file (usually app/build.gradle):
 ```
 implementation 'com.google.firebase:firebase-database:19.3.1'
 ```
+#### Write to your database :
+* Retrieve an instance of your database using getInstance() and reference the location you want to write to.
+```
+DatabaseReference reference = FirebaseDatabase.getInstance().getReference("message");
+//To push/write data into database.
+reference.setValue("Welcome to Android World");
+```
+
+#### Read from your database :
+* To make your app data update in realtime, you should add a ValueEventListener to the reference you just created.
+* The onDataChange() method in this class is triggered once when the listener is attached and again every time the data changes, including the children.
+```
+reference.addValueEventListener(new ValueEventListener() {
+    @Override
+    public void onDataChange(DataSnapshot dataSnapshot) {
+        // This method is called once with the initial value and again
+        // whenever data at this location is updated.
+        String value = dataSnapshot.getValue(String.class);
+        Toast.maketext(this,"Value is: "+value,Length.short()).show();
+        Log.d(TAG, "Value is: " + value);
+    }
+
+    @Override
+    public void onCancelled(DatabaseError error) {
+        // Failed to read value
+        Log.w(TAG, "Failed to read value.", error.toException());
+    }
+});
+```
+
 
