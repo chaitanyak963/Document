@@ -163,6 +163,7 @@ Errors indicate that something severe enough has gone wrong, the application sho
 Exceptions are events that occurs in the code. A programmer can handle such conditions and take necessary corrective actions.
 
  Few examples:
+ 
 NullPointerException – When you try to use a reference that points to null.
 
 ArithmeticException – When bad data is provided by user, for example, when you try to divide a number by zero this exception occurs because dividing a number by zero is undefined.
