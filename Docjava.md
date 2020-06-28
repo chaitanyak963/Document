@@ -1,5 +1,5 @@
-# INTRODUCTION TO JAVA #
-## What is Java? ##
+# INTRODUCTION TO JAVA 
+## What is Java? 
 •	Java is an object-oriented programming language developed by Sun Microsystems, and it was released in 1995.
 
 •	James Gosling initially developed Java in Sun Microsystems (which was later merged with Oracle Corporation).
@@ -12,7 +12,7 @@
 
 •	Java Virtual Machine (JVM) executes Java code, but it has been written in platform-specific languages such as C/C++ /ASM, etc. JVM is not written in Java and hence cannot be platform independent, and Java interpreter is a part of JVM.
 
-## Where is java being  used ##
+## Where is java being  used 
 Earlier Java was only used to design and program small computing devices, but it was later adopted as one of the platform-independent programming languages, and now according to Sun, 3 billion devices run Java.
 
 •	Java is one of the most important programming languages in today's IT industries.
@@ -27,7 +27,7 @@ Earlier Java was only used to design and program small computing devices, but it
 
 •	Mobile - In addition to the above technology, Java is widely used in mobile devices nowadays, many types of games and applications are being made in Java.
 
-## Types of java applications ##
+## Types of java applications 
 1.	Web Application - Java is used to create server-side web applications. Currently, Servlet, JSP, Struts, JSF, etc. technologies are used.
 
 2.	Standalone Application - It is also known as the desktop application or window-based application. An application that we need to install on every machine or server such as media player, antivirus, etc. AWT and Swing are used in java for creating standalone applications.
@@ -35,7 +35,7 @@ Earlier Java was only used to design and program small computing devices, but it
 3.	Enterprise Application - An application that is distributed in nature, such as banking applications, etc. It has the advantage of high-level security, load balancing, and clustering. In Java, EJB is used for creating enterprise applications.
 
 4.	Mobile Application - Java is used to create application software for mobile devices. Currently, Java ME is used for building applications for small devices, and also Java is a programming language for Google Android application development.
-## Features of java ##
+## Features of java 
 •	Object-Oriented - Java supports the features of object-oriented programming. Its object model is simple and easy to expand.
 
 •	Platform independent - C and C++ are platform dependency languages hence the application programs written in one Operating system cannot run in any other Operating system, but in platform independence language like Java application programs written in one Operating system can able to run on any Operating system.
@@ -51,31 +51,31 @@ Earlier Java was only used to design and program small computing devices, but it
 •	Multi-threaded - The multithreading programming feature in Java allows you to write a program that performs several different tasks simultaneously.
 
 •	Distributed - Java is designed for distributed Internet environments as it manages the TCP/IP protocol.
-# BASIC CONCEPTS OF OBJECT-ORIENTED PROGRAMMING #
+# BASIC CONCEPTS OF OBJECT-ORIENTED PROGRAMMING 
 
-## Objects ##
-      Objects are the basic runtime entities in an object oriented system. They may represent a person, a place, a bank account, a table of data or any item that the program has to handle.
+## Objects 
+   Objects are the basic runtime entities in an object oriented system. They may represent a person, a place, a bank account, a table of data or any item that the program has to handle.
 
-## Class ##
-    Object contains data, and code to manipulate that data. The entire set of data and code of an object can be made a user-defined data type with the help of a class.
+## Class 
+   Object contains data, and code to manipulate that data. The entire set of data and code of an object can be made a user-defined data type with the help of a class.
 
- ## Data Encapsulation ##
+ ## Data Encapsulation 
    The wrapping up of data and functions into a single unit is known as encapsulation. The data is not accessible to the outside world, only those function which are wrapped in the can access it. These functions provide the interface between the object’s data and the program. This insulation of the data from direct access by the program is called data hiding or information hiding.
 
-## Data Abstraction ##
+## Data Abstraction 
    Abstraction refers to the act of representing essential features without including the background details or explanations. Since classes use the concept of data abstraction, they are known as Abstract Data Types (ADT).
 
-## Inheritance ##
-      Inheritance is the process by which objects of one class acquire the properties of objects of another class. In OOP, the concept of inheritance provides the idea of reusability. This means we can add additional features to an existing class without modifying it.
+## Inheritance 
+   Inheritance is the process by which objects of one class acquire the properties of objects of another class. In OOP, the concept of inheritance provides the idea of reusability. This means we can add additional features to an existing class without modifying it.
 
 ## Polymorphism ##
    Polymorphism, a Greek term means to ability to take more than one form. An operation may exhibits different behaviors in different instances. The behavior depends upon the type of data used in the operation.
      For example consider the operation of addition for two numbers; the operation will generate a sum. If the operands are string then the operation would produce a third string by concatenation.The process of making an operator to exhibit different behavior in different instances is known operator overloading.
 
 
-# ABSTRACT CLASS AND INTERFACES #
+# ABSTRACT CLASS AND INTERFACES 
 
-## Abstract Class ##
+## Abstract Class 
 A class that is declared using “abstract” keyword is known as abstract class. It can have abstract methods (methods without body) as well as concrete methods (regular methods with body). A normal class (non-abstract class) cannot have abstract methods.
 An abstract class cannot be instantiated, which means you are not allowed to create an object of it.
 Abstract class declaration
@@ -92,7 +92,7 @@ An abstract class outlines the methods but not necessarily implements all the me
 }
 
 
-## Rules ##
+## Rules 
 
 Note 1: As we seen in the above example, there are cases when it is difficult or often unnecessary to implement all the methods in parent class. In these cases, we can declare the parent class as abstract, which makes it a special class which is not complete on its own. A class derived from the abstract class must implement all those methods that are declared as abstract in the parent class.
 
@@ -100,10 +100,10 @@ Note 2: Abstract class cannot be instantiated which means you cannot create the 
 
 Note 3: If a child does not implement all the abstract methods of abstract parent class, then the child class must need to be declared abstract as well.
 
-## Interface ##
+## Interface 
 Interface looks like a class but it is not a class. An interface can have methods and variables just like the class but the methods declared in interface are by default abstract (only method signature, no body, see: Java abstract method). Also, the variables declared in an interface are public, static & final by default.
 
-## What is the use of interface ##
+## What is the use of interface 
 
 As mentioned above they are used for full abstraction. Since methods in interfaces do not have body, they have to be implemented by the class before you can access them. The class that implements interface must implement all the methods of that interface. Also, java programming language does not allow you to extend more than one class, However you can implement more than one interfaces in your class.
 Syntax:
@@ -119,11 +119,11 @@ interface MyInterface
 }
 
 
-# EXCEPTION HANDLING #
+# EXCEPTION HANDLING 
 
 Exception handling is one of the most important feature of java programming that allows us to handle the runtime errors caused by exceptions.
 
-## What is an exception ##
+## What is an exception 
 
 An Exception is an unwanted event that interrupts the normal flow of the program. When an exception occurs program execution gets terminated. In such cases we get a system generated error message. The good thing about exceptions is that they can be handled in Java. By handling the exceptions we can provide a meaningful message to the user about the issue rather than a system generated message, which may not be understandable to a user.
 There can be several reasons that can cause a program to throw exception. 
