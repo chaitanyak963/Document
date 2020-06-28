@@ -45,7 +45,7 @@ implementation 'com.google.firebase:firebase-database:19.3.1'
 #### Write to your database :
 * Retrieve an instance of your database using getInstance() and reference the location you want to write to.
 ```
-DatabaseReference reference = FirebaseDatabase.getInstance().getReference("message");
+DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Database");
 //To push/write data into database.
 reference.setValue("Welcome to Android World");
 ```
@@ -72,4 +72,31 @@ reference.addValueEventListener(new ValueEventListener() {
 });
 ```
 
+#### Update single data into your database :
+* To update any single value in the database we will use updateChildren().
+```
+        HashMap<String,Object> map = new HashMap<>();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        Query query = ref.child("Database").orderByChild("roll").equalTo(roll);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    map.put("name","apssdc");
+                    dataSnapshot.getRef().updateChildren(map);
+                    Toast.makeText(MainActivity.this, "Data Updated", Toast.LENGTH_SHORT).show();
+                }
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+```
+
+#### Delete single data from database :
+* To delete any single value from the database we will use removeValue().
+```
+reference.child("123").removeValue();
+```
