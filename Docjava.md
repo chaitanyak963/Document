@@ -92,7 +92,7 @@ An abstract class cannot be instantiated, which means you are not allowed to cre
 Abstract class declaration
 
 An abstract class outlines the methods but not necessarily implements all the methods.
-
+```
 //Declaration using abstract keyword
  abstract class A{
    //This is abstract method
@@ -103,6 +103,7 @@ An abstract class outlines the methods but not necessarily implements all the me
       //Does something
    }
 }
+```
 
 
 ## Rules :
@@ -126,6 +127,7 @@ Syntax:
 Interfaces are declared by specifying a keyword “interface”.
 
 ## E.g.
+```
 interface MyInterface
 {
    /* All the methods are public abstract by default
@@ -134,6 +136,7 @@ interface MyInterface
    public void method1();
    public void method2();
 }
+```
 
 
 # EXCEPTION HANDLING 
@@ -166,7 +169,6 @@ ArithmeticException – When bad data is provided by user, for example, when you
 
 ArrayIndexOutOfBoundsException – When you try to access the elements of an array out of its bounds, for example array size is 5 (which means it has five elements) and you are trying to access the 10th element.
 
-![picture alt]
 
 
 
