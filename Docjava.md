@@ -1,11 +1,17 @@
 # INTRODUCTION TO JAVA #
 ## What is Java? ##
 •	Java is an object-oriented programming language developed by Sun Microsystems, and it was released in 1995.
+
 •	James Gosling initially developed Java in Sun Microsystems (which was later merged with Oracle Corporation).
+
 •	Java is a set of features of C and C++. It has obtained its format from C, and OOP features from C++.
+
 •	Java programs are platform independent which means they can be run on any operating system with any processor as long as the Java interpreter is available on that system.
+
 •	Java code that runs on one platform does not need to be recompiled to run on another platform; it's called write once, run any where(WORA).
+
 •	Java Virtual Machine (JVM) executes Java code, but it has been written in platform-specific languages such as C/C++ /ASM, etc. JVM is not written in Java and hence cannot be platform independent, and Java interpreter is a part of JVM.
+
 ## Where is java being  used ##
 Earlier Java was only used to design and program small computing devices, but it was later adopted as one of the platform-independent programming languages, and now according to Sun, 3 billion devices run Java.
 •	Java is one of the most important programming languages in today's IT industries.
