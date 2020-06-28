@@ -126,7 +126,7 @@ Syntax:
 
 Interfaces are declared by specifying a keyword “interface”.
 
-## E.g.
+## Example :
 ```
 interface MyInterface
 {
@@ -139,7 +139,7 @@ interface MyInterface
 ```
 
 
-# EXCEPTION HANDLING 
+# EXCEPTION HANDLING :
 
 Exception handling is one of the most important feature of java programming that allows us to handle the runtime errors caused by exceptions.
 
@@ -169,17 +169,6 @@ NullPointerException – When you try to use a reference that points to null.
 ArithmeticException – When bad data is provided by user, for example, when you try to divide a number by zero this exception occurs because dividing a number by zero is undefined.
 
 ArrayIndexOutOfBoundsException – When you try to access the elements of an array out of its bounds, for example array size is 5 (which means it has five elements) and you are trying to access the 10th element.
-
-
-
-
-
-
-
-
-
-                                                       
-
 
 
 ## Types of exceptions :
@@ -257,8 +246,8 @@ The basic difference between Thread and Runnable is that each thread defined by 
 Thread is a class in java.lang package. The Thread class extends an Object class, and it implements Runnable interfaces. The Thread class has constructors and methods to create and operate on the thread. When we create multiple threads, each thread creates a unique object and get associated with that object. If you create a thread extending Thread class, further you can not extend any other class as java does not support multiple inheritance.
 So, you should choose to extend Thread class only when you also want to override some other methods of Thread class. 
 
-## E.g.
-
+## Example :
+```
 class MultithreadingDemo extends Thread{  
   public void run(){  
     System.out.println("My thread is in running state.");  
@@ -268,6 +257,7 @@ class MultithreadingDemo extends Thread{
      obj.start();  
   }  
 }
+```
 
 ## Output:
 My thread is in running state.
@@ -276,8 +266,8 @@ My thread is in running state.
 ## Runnable Interface :
 Runnable is an interface in java.lang package. Implementing Runnable interface we can define a thread. Runnable interface has a single method run(), which is implemented by the class that implements Runnable interface. When you choose to define thread implementing a Runnable interface you still have a choice to extend any other class. When you create multiple threads by implementing Runnable interface, each thread shares the same runnable instance.
 
-## E.g.
-
+## Example :
+```
 class MultithreadingDemo implements Runnable{  
   public void run(){  
     System.out.println("My thread is in running state.");  
@@ -288,6 +278,7 @@ class MultithreadingDemo implements Runnable{
      tobj.start();  
  }  
 }
+```
 
 ## Output:
 My thread is in running state.
