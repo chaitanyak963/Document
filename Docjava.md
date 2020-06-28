@@ -197,7 +197,7 @@ All exceptions other than Runtime Exceptions are known as Checked exceptions as 
 
 Runtime Exceptions are also known as Unchecked Exceptions. These exceptions are not checked at compile-time so compiler does not check whether the programmer has handled them or not but it’s the responsibility of the programmer to handle these exceptions and provide a safe exit. For example, ArithmeticException, NullPointerException, ArrayIndexOutOfBoundsException etc.Compiler will never force you to catch such exception or force you to declare it in the method using throws keyword.
 
-# MULTI THREADING :
+# MULTI THREADING 
 
 A thread is a light-weight smallest part of a process that can run concurrently with the other parts(other threads) of the same process. Threads are independent because they all have separate path of execution that’s the reason if an exception occurs in one thread, it doesn’t affect the execution of other threads. All threads of a process share the common memory. The process of executing multiple threads simultaneously is known as multithreading.
 
