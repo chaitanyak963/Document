@@ -42,7 +42,8 @@ manager.notify(ID,builder.build());
 #### Importance level and priority contraints :
 * Below table represents the imporatance levels and contraints for Android 7(& Below) and Android 8(& Above) :
 <img src = "importance.png" height=200dp>
-##### Creating Intent and Pending Intent in the Notification :
+
+###### Creating Intent and Pending Intent in the Notification :
 * Intent will be created to build the connectivity between the notification and the java class ,to navigate when clicked on notification.
 ```
 Intent intent = Intent(this, MainActivity.class);
