@@ -156,7 +156,7 @@ interface MyInterface
 ```
 
 
-# EXCEPTION HANDLING :
+# EXCEPTION HANDLING 
 
 Exception handling is one of the most important feature of java programming that allows us to handle the runtime errors caused by exceptions.
 
