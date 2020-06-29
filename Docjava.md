@@ -187,6 +187,10 @@ ArithmeticException – When bad data is provided by user, for example, when you
 
 ArrayIndexOutOfBoundsException – When you try to access the elements of an array out of its bounds, for example array size is 5 (which means it has five elements) and you are trying to access the 10th element.
 
+<p align="center">
+  <img src="Exception.png"/>
+</p>
+
 
 ## Types of exceptions :
 
