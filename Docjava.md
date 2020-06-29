@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="java.png"/>
+</p>
+
 # INTRODUCTION TO JAVA
 
 ## What is Java ? 
