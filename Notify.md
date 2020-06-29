@@ -1,7 +1,7 @@
 # Notifications 
 ### What is a notification ?
 A notification is a message that Android displays outside your app's UI to provide the user with reminders, communication from other people, or other timely information from your app. 
-<img src="notification.png" height=200dp>
+<img src="notfication.png" height=200dp>
 
 ### Why is a notification ?
 * To notify the user if there is trigger of the data from the background services.
