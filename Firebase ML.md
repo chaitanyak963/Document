@@ -49,5 +49,209 @@ To enable Firebase services for your app, you must create a Firebase project for
   <img src="d(1).png"/>
 </p>
 
+## 2.Configure your Android Studio Project
+
+Before you start using the Firebase ML Kit APIs, you must establish a connection between your Android Studio project and the Firebase project you created in the previous step. To do so, open the Firebase Assistant panel by going to Tools > Firebase.
+
+The Firebase Assistant doesn't have any support for ML Kit currently. Nevertheless, by using it to add Firebase Analytics instead, you can still avoid establishing the connection manually. Therefore, expand the Analytics section, click on the Log an Analytics event link, and press the Connect to Firebase button.
+
+In the dialog that pops up, make sure you select the Choose an existing Firebase or Google project option and pick the Firebase project you created.
+
+<p align="center">
+  <img src="e(1).png"/>
+</p>
+
+Press the Connect to Firebase button next. At this point, the Assistant will automatically download a google-services.json file, containing API keys and project IDs, and add it to the app module.
+
+After the connection has been established successfully, make sure you press the Add Analytics to your app button to add various core Firebase dependencies to your app module's build.gradle file.
+
+Next, to actually add the ML Kit library, open the build.gradle file and type in the following implementation dependencies:
+
+```
+implementation 'com.google.firebase:firebase-ml-vision:16.0.0'
+implementation 'com.google.firebase:firebase-ml-vision-image-label-model:15.0.0'
+```
+•	To simplify the process of downloading images from the Internet and displaying them in your app, I suggest you also add a dependency for the Picasso library.
+
+```
+implementation 'com.squareup.picasso:picasso:2.5.2'
+```
+
+•	Additionally, add Anko as a dependency to make sure your Kotlin code is both concise and intuitive.
+
+```
+implementation 'org.jetbrains.anko:anko-commons:0.10.5'
+```
+•	By default, Firebase ML Kit's local models are automatically downloaded to your users' devices only when needed. If you want them to be downloaded as soon as your app is installed, however, add the following code to the AndroidManifest.xml file:
+
+```
+<meta-data
+    android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+    android:value="text,face,label" />
+```
+## 3.Define a Layout
+
+In this , we'll be creating an app that allows users to type in URLs of images and perform text recognition, face detection, and image labeling operations on them. Therefore, the layout of the app must have an EditText widget, where the users can type in the URLs, and three Button widgets, which let them choose which operation they want to perform. 
+
+Optionally, you can include an ImageView widget to display the images.
+
+If you position all the above widgets using a RelativeLayout widget, your layout XML file should like this:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+ 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Image URL"
+        android:id="@+id/image_url_field"
+        android:imeOptions="actionDone"
+        android:inputType="textUri"/>
+ 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:id="@+id/image_holder"
+        android:layout_below="@+id/image_url_field"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerInside"/>
+ 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:text="Text"
+            android:onClick="recognizeText"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            
+            android:layout_weight="0.33"
+            android:text="Faces"
+            android:onClick="detectFaces"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33"
+            android:text="Labels"
+            android:onClick="generateLabels"/>
+    </LinearLayout>
+ 
+</RelativeLayout>
+
+```
+•	Here's a more visual representation of the layout:
+
+<p align="center">
+  <img src="f(1).png"/>
+</p>
+
+•	In the XML above, you may have noticed that each button has an onClick attribute pointing to an on-click event handler method. Those methods don't exist yet, so create them inside your activity now.
+
+```
+fun recognizeText(v: View) {
+    // To do   
+}
+ 
+fun detectFaces(v: View) {
+    // To do
+}
+ 
+fun generateLabels(v: View) {
+    // To do
+}
+```
+
+## 4.Load an Image
+
+When the user presses the Done key after typing an image's URL into the EditText widget, our app must download the image and display it inside the ImageView widget.
+
+To detect actions performed on the user's virtual keyboard, associate an OnEditorActionListener object with the EditText widget. Inside the listener, after confirming that the IME_ACTION_DONE action was performed, you can simply call Picasso's load() and into() methods to load and display the image respectively.
+
+Accordingly, add the following code inside the onCreate() method of your activity:
+
+```
+image_url_field.setOnEditorActionListener { _, action, _ ->
+    if (action == EditorInfo.IME_ACTION_DONE) {
+        Picasso.with(ctx).load(image_url_field.text.toString())
+                .into(image_holder)
+        true
+    }
+    false
+}
+
+```
+## 5.Recognize Text
+
+Firebase ML Kit has separate detector classes for all the various image recognition operations it offers. To recognize text, you must either use the FirebaseVisionTextDetector class, which depends on a local model, or use the FirebaseVisionCloudTextDetector class, which depends on a cloud-based model. For now, let's use the former. It's far faster, but it can handle text written in the Latin alphabet only.
+
+An ML Kit detector expects its input to be in the form of a FirebaseVisionImage object. To create such an object, all you need to do is call the fromBitmap() utility method of the FirebaseVisionImage class and pass a bitmap to it. The following code, which must be added to the recognizeText() event handler we created earlier, shows you how to convert the image that is being displayed in the layout's ImageView widget into a bitmap, and then create a FirebaseVisionImage object out of it:
+
+```
+val textImage = FirebaseVisionImage.fromBitmap(
+        (image_holder.drawable as BitmapDrawable).bitmap
+)
+```
+
+•	Next, to get a reference to a FirebaseVisionTextDetector object, you must use a FirebaseVision instance.
+```
+val detector = FirebaseVision.getInstance().visionTextDetector
+```
+
+•	You can now start the text recognition process by calling the detectInImage() method and passing the FirebaseVisionImage object to it. Because the method runs asynchronously, it returns a Task object. Consequently, to be able to process the result when it is available, you must attach an OnCompleteListener instance to it. Here's how:
+
+```
+detector.detectInImage(textImage)
+        .addOnCompleteListener {
+            // More code here
+        }
+ ```
+ 
+ •	Inside the listener, you'll have access to a list of Block objects. In general, each block can be thought of as a separate paragraph detected in the image. By taking a look at the text properties of all the Block objects, you can determine all the text that has been detected. The following code shows you how to do so:
+ 
+ ```
+ var detectedText = ""
+it.result.blocks.forEach {
+    detectedText += it.text + "\n"
+}
+```
+
+•	How you use the detected text is of course up to you. For now, let's just display it using an alert dialog. Thanks to Anko's alert() function, doing so takes very little code.
+
+```
+runOnUiThread {
+    alert(detectedText, "Text").show()
+}
+```
+In the above code, the runOnUiThread() method ensures that the alert() function is run on the main thread of the application.
+
+Lastly, once you have finished using the detector, you must remember to call its close() method to release all the resources it holds.
+
+ If you run the app now, type in the URL of an image containing lots of text, and press the Text button, you should be able to see ML Kit's text recognition service in action.
+ 
+ 
+<p align="center">
+  <img src="g(1).png"/>
+</p>
+
+ML Kit's local model for text recognition is reasonably accurate with most kinds of printed text.
+
+## 6.Detect Faces:
+
+Even though they don't share any common high-level interface, most of the detector classes have identical methods. That means that detecting faces in an image is not too different from recognizing text. However, note that ML Kit currently offers only a local model for face detection, which can be accessed using the FirebaseVisionFaceDetector class. You can get a reference to an instance of it using the FirebaseVision class.
+0
+Add the following code to the detectFaces() method:
+
+
+
 
 
