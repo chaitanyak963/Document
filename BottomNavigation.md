@@ -3,7 +3,8 @@ In Android, there are many options for making navigation easy in your applicatio
 
 
 
-##Using Bottom Navigation in Android
+## Using Bottom Navigation in Android
+
 It is very easy, you can create a Bottom Navigation Activity in your project by following ways.
 
 1. you just need to use <android.support.design.widget.BottomNavigationView />, if you want to do it in XML.
