@@ -151,6 +151,7 @@ If you position all the above widgets using a RelativeLayout widget, your layout
 ```
 •	Here's a more visual representation of the layout:
 
+
 <p align="center">
   <img src="f(1).png"/>
 </p>
