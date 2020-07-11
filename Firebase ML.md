@@ -248,8 +248,56 @@ ML Kit's local model for text recognition is reasonably accurate with most kinds
 ## 6.Detect Faces:
 
 Even though they don't share any common high-level interface, most of the detector classes have identical methods. That means that detecting faces in an image is not too different from recognizing text. However, note that ML Kit currently offers only a local model for face detection, which can be accessed using the FirebaseVisionFaceDetector class. You can get a reference to an instance of it using the FirebaseVision class.
-0
+
 Add the following code to the detectFaces() method:
+
+```
+val detector = FirebaseVision.getInstance().visionFaceDetector
+```
+By calling the detectInImage() method again and passing a bitmap to it, you can start the face detection process asynchronously. By using an OnCompleteListener instance attached to the Task object it returns, you can easily know when the process is complete.
+
+```
+detector.detectInImage(FirebaseVisionImage.fromBitmap(
+            (image_holder.drawable as BitmapDrawable).bitmap
+        )).addOnCompleteListener {
+            // More code here        
+        }
+```
+Inside the listener, you'll have access to a list of FirebaseVisionFace objects, which contain the coordinates of rectangles that circumscribe the detected faces. So let us now draw those rectangles over a copy of the original image that was processed.
+
+To create a copy of the original image's bitmap, you must use its copy() method as shown below:
+
+```
+var markedBitmap =
+    (image_holder.drawable as BitmapDrawable)
+            .bitmap
+            .copy(Bitmap.Config.ARGB_8888, true)
+```
+
+•	Next, to be able to draw on the new bitmap, you must create Canvas and Paint objects for it. Using a slightly transparent color for the rectangles would be ideal.
+
+```
+val canvas = Canvas(markedBitmap)
+val paint = Paint(Paint.ANTI_ALIAS_FLAG)
+paint.color = Color.parseColor("#99003399")
+                            // semi-transparent blue
+```
+
+•	At this point, you can simply loop through the list of FirebaseVisionFace objects and use their boundingBox properties to draw rectangles over the detected faces.
+
+```
+it.result.forEach {
+    canvas.drawRect(it.boundingBox, paint)
+}
+```
+
+•	Finally, don't forget to pass the new bitmap to the ImageView widget once it's ready.
+
+```
+runOnUiThread {
+    image_holder.setImageBitmap(markedBitmap)
+}
+```
 
 
 
