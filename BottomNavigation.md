@@ -371,3 +371,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
   <img src="f.png"/>
 </p>
 
+•	As you can see it is working absolutely fine. 
+
+•	Now you can design your fragments as you want, you can create some complex User Interface there, you can fetch some data from network to display it using a RecyclerView.
+
