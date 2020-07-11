@@ -358,6 +358,3 @@ Go ahead and run the app again to see what labels your app generates for the ima
 
 With Firebase ML Kit, Google wants to make machine learning as accessible and mainstream as simpler tasks such as analytics and crash reporting. In this introductory tutorial, you learned how to work with some of its base APIs in Android apps. You also learned how to use both the cloud and local models it offers.
 
-
-
-
