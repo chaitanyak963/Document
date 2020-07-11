@@ -307,8 +307,6 @@ runOnUiThread {
 
 
 
-
-
 I'm sure you'll be impressed with how fast and accurate ML Kit's face detection operations are.
 
 ## 7.Generate Labels
