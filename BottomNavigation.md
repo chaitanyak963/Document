@@ -235,7 +235,7 @@ public class HomeFragment extends Fragment {
     }
  ```
 
-•	We will call the above method inside onCreate() to load the default fragment on starting.
+•	We will call the above method inside onCreate() to load the default fragment on starting.    
 
 ```
     @Override
