@@ -15,3 +15,10 @@ It is very easy, you can create a Bottom Navigation Activity in your project by 
 <p align="center">
   <img src="a.png"/>
 </p>
+
+3. While creating an Android Project you can select Bottom Navigation Activity from the template.
+
+<p align="center">
+  <img src="d.png"/>
+</p>
+
