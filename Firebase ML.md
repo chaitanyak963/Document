@@ -299,6 +299,64 @@ runOnUiThread {
 }
 ```
 
+•	If you run the app now, you should be able to perform face detection on any image that has people in it.
+
+<p align="center">
+  <img src="h(1).png"/>
+</p>
+
+
+
+
+
+I'm sure you'll be impressed with how fast and accurate ML Kit's face detection operations are.
+
+## 7.Generate Labels
+
+To generate labels for an image, you must use either the local model-based FirebaseVisionLabelDetector class or the cloud model-based FirebaseVisionCloudLabelDetector class. Because we've been using only local models throughout this tutorial, let's use the cloud model now. To get a reference to an instance of the FirebaseVisionCloudLabelDetector class, you must again use the FirebaseVision class.
+
+Add the following code to the generateLabels() method:
+
+```
+val detector = 
+        FirebaseVision.getInstance().visionCloudLabelDetector
+```
+•	Next, as usual, call the detectInImage() method and assign an OnCompleteListener instance to its return value.
+
+```
+detector.detectInImage(FirebaseVisionImage.fromBitmap(
+            (image_holder.drawable as BitmapDrawable).bitmap
+        )).addOnCompleteListener {
+            // More code here
+        }
+```
+
+This time, inside the listener, you'll have access to a list of FirebaseVisionCloudLabel objects, each of which has a label property containing a potential label for the image. Each label also has a confidence property associated with it, specifying how sure ML Kit is about the label.
+
+The following code shows you how to loop through the list of labels and generate an alert dialog displaying only those labels whose confidence scores are more than 70%.
+
+```
+var output = ""
+it.result.forEach {
+    if(it.confidence > 0.7)
+        output += it.label + "\n"
+}
+runOnUiThread {
+    alert(output, "Labels").show()
+}
+```
+
+Go ahead and run the app again to see what labels your app generates for the images you throw at it.
+
+<p align="center">
+  <img src="i(1).png"/>
+</p>
+
+
+
+## Conclusion
+
+With Firebase ML Kit, Google wants to make machine learning as accessible and mainstream as simpler tasks such as analytics and crash reporting. In this introductory tutorial, you learned how to work with some of its base APIs in Android apps. You also learned how to use both the cloud and local models it offers.
 
 
 
