@@ -4,6 +4,7 @@ In Android, there are many options for making navigation easy in your applicatio
 <p align="center">
   <img src="bottomnav.png"/>
 </p>
+
 ## Using Bottom Navigation in Android
 
 It is very easy, you can create a Bottom Navigation Activity in your project by following ways.
