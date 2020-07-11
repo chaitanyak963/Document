@@ -13,5 +13,5 @@ It is very easy, you can create a Bottom Navigation Activity in your project by 
 
 2. Android Studio also have a predefined template for creating BottomNavigationView, when you create a new Activity you can select Bottom Navigation Activity, as shown in the image.
 <p align="center">
-  <img src="a (2).png"/>
+  <img src="a.png"/>
 </p>
