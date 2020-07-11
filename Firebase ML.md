@@ -26,3 +26,28 @@ To enable Firebase services for your app, you must create a Firebase project for
 <p align="center">
   <img src="a(1).png"/>
 </p>
+
+•	In the dialog that pops up, give the project a name that's easy to remember and press the Create project button.
+
+<p align="center">
+  <img src="b(1).png"/>
+</p>
+
+•	After several seconds, you should see a notification telling you that the new project is ready. Press the Continue button to proceed.
+
+•	In the next screen, go to the Develop section and click on the ML Kit link to see all the services ML Kit offers.
+
+<p align="center">
+  <img src="c(1).png"/>
+</p>
+
+•	In this , we'll be using three services: text recognition, face detection, and image labeling. You don't have to take any steps to explicitly enable them if you intend to work with only the local models that come with ML Kit. In this tutorial, though, we'll be using both local and cloud-based models. So click on the Cloud API usage link next.
+
+•	You'll now be taken to the Google Cloud console, where you can simply press the Enable button shown in the Cloud Vision API section to activate the cloud-based models. Note, however, that this will work only if you have billing enabled for your Google Cloud account.
+
+<p align="center">
+  <img src="d(1).png"/>
+</p>
+
+
+
