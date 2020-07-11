@@ -134,8 +134,240 @@ Now, if you created the project using Bottom Navigation Activity template, a men
 
 •	So, the above codes will produce the following Layout for our Main Activity.
 
+<p align="center">
+  <img src="e.png"/>
+</p>
+
+•	If you have used the predefined template for creating Bottom Navigation View, then you will have some codes in the MainActivity.java by default. We will remove those codes and change the MainActivity as shown below, so that we can learn everything.
+
+```
+package net.simplifiedcoding.bottomnavigationexample;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+}
+```
+## Creating Fragments
+For each of the view we need to create a layout resource file and a fragment class to inflate the view. As we have 4 different views to be switched we need to create 4 layout resource files and 4 java classes. Every class and resource file is almost the same as we don’t have anything other than a simple TextView in the screens.
+
+## Creating Layout Resource Files
+
+•	Create fragment_home.xml,fragment_dashboard.xml,fragment_notifications.xml and fragment_profile.xml.
+
+•	All the files will have the following code in it.
+```
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Home"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+</RelativeLayout>
+```
+•	Don’t forget to change the text value of the TextView in each file.
+
+## Creating Fragments
+
+•	Now create java classes named, HomeFragment.java, DashboardFragment.java, NotificationsFragment.java and ProfileFragment.java.
+
+•	Each file will contain the following code in it.
+```
+package net.simplifiedcoding.bottomnavigationexample;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+/**
+ * Created by Belal on 1/23/2018.
+ */
+
+public class HomeFragment extends Fragment {
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        //just change the fragment_dashboard
+        //with the fragment you want to inflate
+        //like if the class is HomeFragment it should have R.layout.home_fragment
+        //if it is DashboardFragment it should have R.layout.fragment_dashboard
+        return inflater.inflate(R.layout.fragment_home, null);
+    }
+}
+```
+•	Don’t forget to change the layout resource id (R.layout.file_name) with the layout that you want to display for the fragment.
+
+## Switching Fragments
+
+•	Now we will switch the screens or fragments when the bottom navigation menu is clicked. We also need to load some fragment initially which is HomeFragment in this case.
+
+•	First we will create a method to switch the fragment. I have created the following method named loadFragment() which is taking Fragment is an object.
+
+```
+    private boolean loadFragment(Fragment fragment) {
+        //switching fragment 
+        if (fragment != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
+            return true;
+        }
+       return false;
+    }
+ ```
+
+•	We will call the above method inside onCreate() to load the default fragment on starting.
+
+```
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        //loading the default fragment
+        loadFragment(new HomeFragment());
+
+        //getting bottom navigation view and attaching the listener
+        BottomNavigationView navigation = findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(this);
+    }
+ ```
+ •	In onCreate() we also defined the BottomNavigationView object. We initialized it using findViewById() method and we attached the listener to detect the Navigation Item Selection.
+ 
+•	Now, we need to implement OnNavigationItemSelectedListener interface in the activity class.
+
+```
+//implement the interface OnNavigationItemSelectedListener in your activity class
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+```
+•	With the above interface we will get method, and it will be called whenever we will tap on an option from the Bottom Navigation View.
+```
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+      
+        return true; 
+    }
+```
+•	In the above method we will switch the fragments.
+
+```
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Fragment fragment = null;
+
+        switch (item.getItemId()) {
+            case R.id.navigation_home:
+                fragment = new HomeFragment();
+                break;
+
+            case R.id.navigation_dashboard:
+                fragment = new DashboardFragment();
+                break;
+
+            case R.id.navigation_notifications:
+                fragment = new NotificationsFragment();
+                break;
+
+            case R.id.navigation_profile:
+                fragment = new ProfileFragment();
+                break;
+        }
+
+        return loadFragment(fragment);
+    }
+```
+•	So, the final code that we have for the MainActivity.java is.
+
+```
+package net.simplifiedcoding.bottomnavigationexample;
+
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
+
+//implement the interface OnNavigationItemSelectedListener in your activity class
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        //loading the default fragment
+        loadFragment(new HomeFragment());
+
+        //getting bottom navigation view and attaching the listener
+        BottomNavigationView navigation = findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(this);
+    }
 
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Fragment fragment = null;
+
+        switch (item.getItemId()) {
+            case R.id.navigation_home:
+                fragment = new HomeFragment();
+                break;
+
+            case R.id.navigation_dashboard:
+                fragment = new DashboardFragment();
+                break;
+
+            case R.id.navigation_notifications:
+                fragment = new NotificationsFragment();
+                break;
+
+            case R.id.navigation_profile:
+                fragment = new ProfileFragment();
+                break;
+        }
+
+        return loadFragment(fragment);
+    }
+
+    private boolean loadFragment(Fragment fragment) {
+        //switching fragment
+        if (fragment != null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
+    }
+}
+```
+
+•	Now, you can try running the application.
+
+
+<p align="center">
+  <img src="f.png"/>
+</p>
 
