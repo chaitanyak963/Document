@@ -241,7 +241,7 @@ Lastly, once you have finished using the detector, you must remember to call its
  
  
 <p align="center">
-  <img src="g(1).png"/>
+  <img src="g (1).png"/>
 </p>
 
 ML Kit's local model for text recognition is reasonably accurate with most kinds of printed text.
@@ -303,7 +303,7 @@ runOnUiThread {
 •	If you run the app now, you should be able to perform face detection on any image that has people in it.
 
 <p align="center">
-  <img src="h(1).png"/>
+  <img src="h (1).png"/>
 </p>
 
 
@@ -348,7 +348,7 @@ runOnUiThread {
 Go ahead and run the app again to see what labels your app generates for the images you throw at it.
 
 <p align="center">
-  <img src="i(1).png"/>
+  <img src="i (1).png"/>
 </p>
 
 
