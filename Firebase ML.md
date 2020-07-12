@@ -227,7 +227,7 @@ Lastly, once you have finished using the detector, you must remember to call its
  If you run the app now, type in the URL of an image containing lots of text, and press the Text button, you should be able to see ML Kit's text recognition service in action.
  
  
-![picture alt](https://github.com/chaitanyak963/Document/raw/master/g (1).png)
+![picture alt](https://github.com/chaitanyak963/Document/raw/master/g(1).png)
 
 ML Kit's local model for text recognition is reasonably accurate with most kinds of printed text.
 
@@ -287,7 +287,7 @@ runOnUiThread {
 
 •	If you run the app now, you should be able to perform face detection on any image that has people in it.
 
-![picture alt](https://github.com/chaitanyak963/Document/raw/master/h (1).png)
+![picture alt](https://github.com/chaitanyak963/Document/raw/master/h(1).png)
 
 
 I'm sure you'll be impressed with how fast and accurate ML Kit's face detection operations are.
@@ -329,7 +329,7 @@ runOnUiThread {
 
 Go ahead and run the app again to see what labels your app generates for the images you throw at it.
 
-![picture alt](https://github.com/chaitanyak963/Document/raw/master/i (1).png)
+![picture alt](https://github.com/chaitanyak963/Document/raw/master/i(1).png)
 
 
 ## Conclusion
