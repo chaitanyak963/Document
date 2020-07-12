@@ -1,9 +1,7 @@
 # BOTTOM NAVIGATION ANDROID
 In Android, there are many options for making navigation easy in your application for the user. Bottom Navigation Bar is one of them. Bottom Navigation Bar always stays at the bottom of your application and provides navigation between the views of your application.
 
-<p align="center">
-  <img src="bottomnav.png"/>
-</p>
+![picture alt](https://raw.githubusercontent.com/chaitanyak963/Document/master/bottomnav.png)
 
 ## Using Bottom Navigation in Android
 
@@ -12,15 +10,11 @@ It is very easy, you can create a Bottom Navigation Activity in your project by 
 1. you just need to use <android.support.design.widget.BottomNavigationView />, if you want to do it in XML.
 
 2. Android Studio also have a predefined template for creating BottomNavigationView, when you create a new Activity you can select Bottom Navigation Activity, as shown in the image.
-<p align="center">
-  <img src="a.png"/>
-</p>
+![picture alt](https://github.com/chaitanyak963/Document/raw/master/a.png)
 
 3. While creating an Android Project you can select Bottom Navigation Activity from the template.
 
-<p align="center">
-  <img src="d.png"/>
-</p>
+![picture alt](https://github.com/chaitanyak963/Document/raw/master/d.png)
 
 ## Bottom Navigation Android Example
 
@@ -134,9 +128,7 @@ Now, if you created the project using Bottom Navigation Activity template, a men
 
 •	So, the above codes will produce the following Layout for our Main Activity.
 
-<p align="center">
-  <img src="e.png"/>
-</p>
+![picture alt](https://github.com/chaitanyak963/Document/raw/master/e.png)
 
 •	If you have used the predefined template for creating Bottom Navigation View, then you will have some codes in the MainActivity.java by default. We will remove those codes and change the MainActivity as shown below, so that we can learn everything.
 
