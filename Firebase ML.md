@@ -11,43 +11,35 @@ Currently, the models are limited to computer-vision-related tasks only, such as
 
 Before you proceed, make sure you have access to the following:
 
-•	the latest version of Android Studio 
+•	The latest version of Android Studio 
 
-•	a device or emulator running Android API level 21 or higher
+•	A device or emulator running Android API level 21 or higher
 
-•	a Firebase account
+•	A Firebase account
 
-•	a Google Cloud account.
+•	A Google Cloud account.
 
 ## 1.Create a Firebase Project
 
 To enable Firebase services for your app, you must create a Firebase project for it. So log in to the Firebase console and, on the welcome screen, press the Add project button.
 
-<p align="center">
-  <img src="a(1).png"/>
-</p>
+![picture alt](https://github.com/chaitanyak963/Document/raw/master/a(1).png)
 
 •	In the dialog that pops up, give the project a name that's easy to remember and press the Create project button.
 
-<p align="center">
-  <img src="b(1).png"/>
-</p>
+![picture alt](https://github.com/chaitanyak963/Document/raw/master/b(1).png)
 
 •	After several seconds, you should see a notification telling you that the new project is ready. Press the Continue button to proceed.
 
 •	In the next screen, go to the Develop section and click on the ML Kit link to see all the services ML Kit offers.
 
-<p align="center">
-  <img src="c(1).png"/>
-</p>
+![picture alt](https://github.com/chaitanyak963/Document/raw/master/c(1).png)
 
 •	In this , we'll be using three services: text recognition, face detection, and image labeling. You don't have to take any steps to explicitly enable them if you intend to work with only the local models that come with ML Kit. In this tutorial, though, we'll be using both local and cloud-based models. So click on the Cloud API usage link next.
 
 •	You'll now be taken to the Google Cloud console, where you can simply press the Enable button shown in the Cloud Vision API section to activate the cloud-based models. Note, however, that this will work only if you have billing enabled for your Google Cloud account.
 
-<p align="center">
-  <img src="d(1).png"/>
-</p>
+![picture alt](https://github.com/chaitanyak963/Document/raw/master/d(1).png)
 
 ## 2.Configure your Android Studio Project
 
@@ -57,9 +49,7 @@ The Firebase Assistant doesn't have any support for ML Kit currently. Neverthele
 
 In the dialog that pops up, make sure you select the Choose an existing Firebase or Google project option and pick the Firebase project you created.
 
-<p align="center">
-  <img src="e(1).png"/>
-</p>
+![picture alt](https://github.com/chaitanyak963/Document/raw/master/e(1).png)
 
 Press the Connect to Firebase button next. At this point, the Assistant will automatically download a google-services.json file, containing API keys and project IDs, and add it to the app module.
 
@@ -151,10 +141,7 @@ If you position all the above widgets using a RelativeLayout widget, your layout
 ```
 •	Here's a more visual representation of the layout:
 
-
-<p align="center">
-  <img src="f(1).png"/>
-</p>
+![picture alt](https://github.com/chaitanyak963/Document/raw/master/f(1).png)
 
 •	In the XML above, you may have noticed that each button has an onClick attribute pointing to an on-click event handler method. Those methods don't exist yet, so create them inside your activity now.
 
@@ -240,9 +227,7 @@ Lastly, once you have finished using the detector, you must remember to call its
  If you run the app now, type in the URL of an image containing lots of text, and press the Text button, you should be able to see ML Kit's text recognition service in action.
  
  
-<p align="center">
-  <img src="g (1).png"/>
-</p>
+![picture alt](https://github.com/chaitanyak963/Document/raw/master/g (1).png)
 
 ML Kit's local model for text recognition is reasonably accurate with most kinds of printed text.
 
@@ -302,10 +287,7 @@ runOnUiThread {
 
 •	If you run the app now, you should be able to perform face detection on any image that has people in it.
 
-<p align="center">
-  <img src="h (1).png"/>
-</p>
-
+![picture alt](https://github.com/chaitanyak963/Document/raw/master/h (1).png)
 
 
 I'm sure you'll be impressed with how fast and accurate ML Kit's face detection operations are.
@@ -347,10 +329,7 @@ runOnUiThread {
 
 Go ahead and run the app again to see what labels your app generates for the images you throw at it.
 
-<p align="center">
-  <img src="i (1).png"/>
-</p>
-
+![picture alt](https://github.com/chaitanyak963/Document/raw/master/i (1).png)
 
 
 ## Conclusion
