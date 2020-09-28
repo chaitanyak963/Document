@@ -66,8 +66,9 @@ String[] teams = getResources().getStringArray(R.array.teams);
 ```
 // Binding resources Array to ListAdapter
 this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, R.id.textview, teams));
-In the following code we fetch the data value from the selected item and pass it as a bundle to the next activity using intents.
 ```
+In the following code we fetch the data value from the selected item and pass it as a bundle to the next activity using intents.
+
 ### MainActivity.java
 
 ```java
