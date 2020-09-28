@@ -21,4 +21,23 @@ The **onListItemClick()** method is used to process the clicks on android ListVi
 
 ![picture alt](https://github.com/chaitanyak963/Document/raw/master/project.png)
 
+### strings.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="teams">
+        <item>India</item>
+        <item>South Africa</item>
+        <item>Australia</item>
+        <item>England</item>
+        <item>New Zealand</item>
+        <item>Sri Lanka</item>
+        <item>Pakistan</item>
+        <item>West Indies</item>
+        <item>Bangladesh</item>
+        <item>Ireland</item>
+    </string-array>
+</resources>
+```
 
+![picture alt](https://raw.githubusercontent.com/chaitanyak963/Document/master/output.gif)
