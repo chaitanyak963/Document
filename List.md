@@ -1,15 +1,15 @@
-## ListView
+# ListView
 * Android ListView is a view which groups several items and display them in vertical scrollable list.
 * The list items are automatically inserted to the list using an Adapter that pulls content from a source such as an array or database.
 * It’s one of the basic and most used UI components of android.
 * The most common usages include displaying data in the form of a vertical scrolling list.
 
-#### Using an Adapter
+### Using an Adapter
 An adapter actually bridges between UI components and the data source that fill data into UI Component. Adapter holds the data and send the data to adapter view, the view can take the data from adapter view and shows the data on different views like as spinner, list view, grid view etc. The adapter pulls the items out of a data source, an array for example, and then converts each item into a view which it then inserts into the ListView.
 
 The **ListView** and **GridView** are subclasses of **AdapterView** and they can be populated by binding them to an Adapter, which retrieves data from an external source and creates a View that represents each data entry. The common adapters are ***ArrayAdapter, BaseAdapter, CursorAdapter, SimpleCursorAdapter, SpinnerAdapter and WrapperListAdapter***.
 
-#### Handling Android ListView Clicks
+### Handling Android ListView Clicks
 The **onListItemClick()** method is used to process the clicks on android ListView item. This method receives 4 parameters:
 
 1.**ListView** : The ListView containing the item views
@@ -17,7 +17,7 @@ The **onListItemClick()** method is used to process the clicks on android ListVi
 3.**Position** : The position of the selected item in the array. Remember that the array is zero indexed, so the first item in the array is at position 0
 4.**Id** : The id of the selected item. Not of importance for our tutorial but is important when using data retrieved from a database as you can use the id (which is the id of the row containing the item in the database) to retrieve the item from the database.
 
-#### Android ListView Example Project Structure
+### Android ListView Example Project Structure
 
 ![picture alt](https://github.com/chaitanyak963/Document/raw/master/project.png)
 
