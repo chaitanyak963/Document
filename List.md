@@ -12,10 +12,10 @@ The **ListView** and **GridView** are subclasses of **AdapterView** and they can
 ### Handling Android ListView Clicks
 The **onListItemClick()** method is used to process the clicks on android ListView item. This method receives 4 parameters:
 
-1.**ListView** : The ListView containing the item views
-2.**View** : The specific item view that was selected
-3.**Position** : The position of the selected item in the array. Remember that the array is zero indexed, so the first item in the array is at position 0
-4.**Id** : The id of the selected item. Not of importance for our tutorial but is important when using data retrieved from a database as you can use the id (which is the id of the row containing the item in the database) to retrieve the item from the database.
+1. **ListView** : The ListView containing the item views
+2. **View** : The specific item view that was selected
+3. **Position** : The position of the selected item in the array. Remember that the array is zero indexed, so the first item in the array is at position 0
+4. **Id** : The id of the selected item. Not of importance for our tutorial but is important when using data retrieved from a database as you can use the id (which is the id of the row containing the item in the database) to retrieve the item from the database.
 
 ### Android ListView Example Project Structure
 
