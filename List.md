@@ -40,4 +40,108 @@ The **onListItemClick()** method is used to process the clicks on android ListVi
 </resources>
 ```
 
+Each list view item will be represented by an xml layout,so lets define the xml layout comprising of a single textview as follows:
+
+### list_item.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Single List Item Design -->
+<TextView xmlns:android="https://schemas.android.com/apk/res/android"
+    android:id="@+id/textview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dip"
+        android:textSize="16dip"
+        android:textStyle="bold" >
+</TextView>
+```
+
+### Following snippet shows how to import the xml resources data and store them in data followed by binding them to the adapter:
+
+```
+// storing string resources into Array
+String[] teams = getResources().getStringArray(R.array.teams);
+```
+```
+// Binding resources Array to ListAdapter
+this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, R.id.textview, teams));
+In the following code we fetch the data value from the selected item and pass it as a bundle to the next activity using intents.
+```
+### MainActivity.java
+
+```java
+package journaldev.com.listview;
+
+
+import android.app.ListActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class MainActivity extends ListActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // storing string resources into Array
+        String[] teams = getResources().getStringArray(R.array.teams);
+
+        // Binding resources Array to ListAdapter
+        this.setListAdapter(new ArrayAdapter<String>(this, R.layout.list_item, R.id.textview, teams));
+
+        ListView lv = getListView();
+
+        // listening to single list item on click
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                // selected item 
+                String team = ((TextView) view).getText().toString();
+
+                // Launching new Activity on selecting single List Item
+                Intent i = new Intent(getApplicationContext(), SecondActivity.class);
+                // sending data to new activity
+                i.putExtra("team", team);
+                startActivity(i);
+
+            }
+        });
+    }
+}
+```
+
+The SecondActivity class retrieves the text label from the list item selected and displays it in a textview as shown in the following snippet.
+
+### SecondActivity.java
+
+```java
+package journaldev.com.listview;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class SecondActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+        TextView txtProduct = (TextView) findViewById(R.id.team_label);
+
+        Intent i = getIntent();
+        // getting attached intent data
+        String product = i.getStringExtra("team");
+        // displaying selected product name
+        txtProduct.setText(product);
+    }
+}
+```
+
 ![picture alt](https://raw.githubusercontent.com/chaitanyak963/Document/master/output.gif)
