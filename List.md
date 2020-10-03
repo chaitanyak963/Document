@@ -389,3 +389,7 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
+
+### CustomListView Output :
+
+![picture alt](https://raw.githubusercontent.com/chaitanyak963/Document/master/Screenshot.png)
