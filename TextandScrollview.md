@@ -130,6 +130,133 @@ This volume starts with the first new Beatle song, “Free as a Bird” (based o
 
 </resources>
 ```
+* Below Image shows how it will be displayed in the strings.xml
 
 ![picture alt](https://raw.githubusercontent.com/chaitanyak963/Document/master/as_strings-xml_capture.png)
 
+#### Add the autoLink attribute for active web links
+
+* Add the ```android:autoLink="web"``` attribute to the article TextView. The XML code for this TextView should now look like this:
+```xml
+<TextView
+   android:id="@+id/article"
+   ...
+   android:autoLink="web"
+   ... />
+```
+
+#### Add a ScrollView to the layout
+
+To make a view (such as a TextView) scrollable, embed the view inside a ScrollView.
+
+1. Add a ScrollView between the article_subheading TextView and the article TextView. As you enter <ScrollView, Android Studio automatically adds </ScrollView> at the end, and presents the android:layout_width and android:layout_height attributes with suggestions. Choose wrap_content from the suggestions for both attributes. The code should now look like this:
+```xml
+<TextView
+   android:id="@+id/article_subheading"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"
+   android:layout_below="@id/article_heading"
+   android:padding="10dp"
+   android:textAppearance="@android:style/TextAppearance"
+   android:text="@string/article_subtitle"/>
+
+<ScrollView
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"
+   android:layout_below="@id/article_subheading"></ScrollView>
+<TextView
+   android:id="@+id/article"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"
+   android:layout_below="@id/article_subheading"
+   android:lineSpacingExtra="5sp"
+   android:autoLink="web"
+   android:text="@string/article_text"/>
+```
+
+2. Move the ending </ScrollView> code after the article TextView so that the article TextView attributes are inside the ScrollView XML element.
+
+3. Remove the following attribute from the article TextView, because the ScrollView itself will be placed below the article_subheading element, and this attribute for TextView would conflict with the ScrollView:
+
+```android:layout_below="@id/article_subheading"```
+
+4. The layout should now look like this:
+
+![picture alt](https://github.com/chaitanyak963/Document/raw/master/dg_layout_diagram1.png)
+
+5. Choose Code > Reformat Code to reformat the XML code so that the article TextView now appears indented inside the <Scrollview code.
+Run the app.
+
+    a. Swipe up and down to scroll the article. The scroll bar appears in the right margin as you scroll.
+
+    b. Tap the web link to go to the web page. The android:autoLink attribute turns any recognizable URL in the TextView (such as www.rockument.com) into a web link.
+
+6. Rotate your device or emulator while running the app. Notice how the scrolling view widens to use the full display and still scrolls properly.
+
+7. Run the app on a tablet or tablet emulator. Notice how the scrolling view widens to use the full display and still scrolls properly.Scrolling Formatted Text
+
+![picture alt](https://github.com/chaitanyak963/Document/raw/master/dg_scrolling_text_composite.png)
+
+In the above figure, the following appear:
+
+1. An active web link embedded in free-form text
+2. The scroll bar that appears when scrolling the text
+Scrolling Text on a Tablet :
+
+[!picture alt](https://github.com/chaitanyak963/Document/blob/master/dg_scrolling_view_tablet.png)    
+
+Depending on your version of Android Studio, the activity_main.xml layout file will now look something like the following:
+```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.example.android.scrollingtext.MainActivity">
+
+        <TextView
+            android:id="@+id/article_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textStyle="bold"
+            android:text="@string/article_title"/>
+
+        <TextView
+            android:id="@+id/article_subheading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/article_heading"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:textAppearance="@android:style/TextAppearance"
+            android:text="@string/article_subtitle"/>
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/article_subheading">
+
+            <TextView
+                android:id="@+id/article"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="5sp"
+                android:autoLink="web"
+                android:text="@string/article_text"/>
+
+        </ScrollView>
+    </RelativeLayout>
+``
