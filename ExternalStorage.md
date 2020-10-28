@@ -283,3 +283,5 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 ### Output
+
+![picturealt](https://raw.githubusercontent.com/chaitanyak963/Document/master/externalstorage1.png)
