@@ -136,7 +136,7 @@ Now we will see how to save or write file to external memory and read the file d
     xmlns:tools="http://schemas.android.com/tools"  
     android:layout_width="match_parent"  
     android:layout_height="match_parent"  
-    tools:context="example.javatpoint.com.externalstorage.MainActivity">  
+    tools:context=".MainActivity">  
   
     <EditText  
         android:id="@+id/editText1"  
