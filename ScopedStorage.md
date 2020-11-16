@@ -12,4 +12,21 @@ There are three main reasons for using scoped storage:
 * **Reducing leftover app data:** When a user uninstalls an app from their device, some app data still remains in the shared storage. With scoped storage, this problem disappears as all the app data resides exclusively in the app directory.
 * **Limiting the abuse of READ_EXTERNAL_STORAGE permission:** Developers have abused this permission heavily because it gave them access to the entire external storage. Using scoped storage, apps can access only their own files, folders and other media file types using storage APIs.
 
+### Adding the Required Permissions
+
+For your first step, you’ll add permissions to let your app access and modify images from other apps.
+
+Open **AndroidManifest.xml** and paste the following code just below the TODO:
+
+```xml
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission
+  android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+  android:maxSdkVersion="28" />
+```
+
+Here, you use *READ_EXTERNAL_STORAGE* permission to access images taken by other apps. *WRITE_EXTERNAL_STORAGE* permission lets you delete these images. You set *android:maxSdkVersion* to 28 because in Android 10 and above, you don’t need this permission anymore.
+
+Later in the tutorial, you’ll explicitly ask the user’s permission to handle image deletion in Android 10.
+
 
