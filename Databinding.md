@@ -40,13 +40,13 @@ public class Name{
 }
 ```
 
-To enable DataBinding in a layout, the **root** element should start with **<layout>** tag. Along with it, **<data>** and **<variable>** tags are used.
+To enable DataBinding in a layout, the **root** element should start with <layout> tag. Along with it, <data> and <variable> tags are used.
 
 Below is the structure of data-binding layout.
 
-* The layout should have **<layout>** as root element. Inside <layout> the usual code of layout will be placed.
-* A **<data>** tag follows the **<layout>**. All the binding variables and methods should go inside **<data>** tag.
-* Inside **<data>** tags, a variable will be declared using **<variable>** tag. The variable tag takes one attribute name. name attribute will be alias name.
+* The layout should have <layout> as root element. Inside <layout> the usual code of layout will be placed.
+* A <data> tag follows the <layout>. All the binding variables and methods should go inside <data> tag.
+* Inside <data> tags, a variable will be declared using <variable> tag. The variable tag takes one attribute name. name attribute will be alias name.
 * To bind a value, @ annotation should be used. In the below layout, user name is bound to TextView using **@{user.name}** .
 
 ```xml
@@ -127,3 +127,7 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
+
+
+Output :
+[!picture](https://github.com/chaitanyak963/Document/raw/master/binding.png)
