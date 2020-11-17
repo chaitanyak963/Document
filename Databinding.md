@@ -130,4 +130,5 @@ public class MainActivity extends AppCompatActivity {
 
 
 Output :
+
 ![picture](https://github.com/chaitanyak963/Document/raw/master/binding.png)
